@@ -1,0 +1,214 @@
+:root {
+    --primary-color: #5d0912; /* Deep Maroon based on typical logo analysis */
+    --secondary-color: #8b1c28; /* Lighter Maroon */
+    --accent-gold: #c5a059; /* Muted Gold */
+    --text-white: #ffffff;
+    --text-off-white: #f0f0f0;
+    --font-heading: 'Cinzel', serif;
+    --font-subheading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('assets/pattern.jpg'); /* Use provided pattern if suitable, else overlay covers it */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay to ensure text readability and set the tint */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(93, 9, 18, 0.95), rgba(40, 4, 8, 0.98));
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(197, 160, 89, 0.3); /* Subtle gold border */
+    background: rgba(255, 255, 255, 0.03); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Typrography */
+.pre-title {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 2rem;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-white);
+}
+
+.tagline {
+    font-family: var(--font-subheading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-off-white);
+    margin: 2rem auto;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+/* Logo */
+.logo-container {
+    margin: 0 auto 1rem;
+    max-width: 300px; /* Adjust based on logo aspect ratio */
+}
+
+.main-logo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Decorative Elements */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.diamond {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-gold);
+    transform: rotate(45deg);
+    margin: 0 1rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.fade-in-down {
+    opacity: 0;
+    animation: fadeInDown 1s ease-out 0.2s forwards;
+}
+
+.delay-200 {
+    animation-delay: 1.2s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .logo-container {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .pre-title {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+}
